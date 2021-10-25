@@ -13,11 +13,14 @@ static const int topbar             = 1;        /* 0 means bottom bar */
 static const Bool viewontag         = True;     /* Switch view on tag switch */
 static const char *fonts[]          = { "monospace:size=14" };
 static const char dmenufont[]       = "monospace:size=14";
-static const char col_gray1[]       = "#222222";
+static const char col_gray1[]       = "#ff6f24";
+/*static const char col_gray1[]       = "#222222";*/
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
-static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#005577";
+/*static const char col_gray4[]       = "#eeeeee";*/
+static const char col_gray4[]       = "#000000";
+/*static const char col_cyan[]        = "#005577";*/
+static const char col_cyan[]        = "#6e0b0b";
 static const unsigned int baralpha = 0xd0;
 static const unsigned int borderalpha = OPAQUE;
 static const char *colors[][3]      = {
