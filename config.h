@@ -1,7 +1,7 @@
-/* See LICENSE file for copyright and license details. */
+/* See :ICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 1;        /* border pixel of windows */
+static const unsigned int borderpx  = 3;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const unsigned int gappih    = 10;       /* horiz inner gap between windows */
 static const unsigned int gappiv    = 10;       /* vert inner gap between windows */
@@ -39,7 +39,8 @@ static const unsigned int alphas[][3]      = {
 /* tagging */
 /*static const char *tags[] = { "1:TERM", "2:WWW", "3:MEDIA", "4:DOC", "5:DEV", "6:OTHER"};*/
 /*static const char *tags[] = {"1.","2.","3.","4.","5.","6."};*/
-static const char *tags[] = {"","","","","",""};
+/*static const char *tags[] = {"","","","","",""};*/
+static const char *tags[] = {" Term"," Www"," Media"," Doc"," Dev"," Chat"};
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -47,11 +48,12 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class                              instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",                              NULL,       NULL,       0,            1,           -1 },
+	{ "Gimp",                              NULL,       NULL,       0,            0,           -1 },
 	{ "Chromium",                          NULL,       NULL,       2,            0,           -1 },
-	{ "electron-netease-cloud-music",      NULL,       NULL,       3,            1,           -1 },
-	{ "wechat-uos",      NULL,       NULL,       6,            0,           -1 },
-	{ "synology-note-station",      NULL,       NULL,       4,            0,           -1 },
+	{ "electron-netease-cloud-music",      NULL,       NULL,       3,            0,           -1 },
+	{ "wechat-uos",                        NULL,       NULL,       6,            0,           -1 },
+	{ "wps",                               NULL,       NULL,       4,            0,           -1 },
+	{ "synology-note-station",             NULL,       NULL,       4,            0,           -1 },
 	{ "Firefox",                           NULL,       NULL,       1 << 8,       0,           -1 },
 };
 
@@ -69,6 +71,7 @@ static const Layout layouts[] = {
 
 /* key definitions */
 #define MODKEY Mod1Mask
+#define MODKEY Mod4Mask
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
