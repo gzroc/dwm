@@ -1,4 +1,4 @@
-/* See :ICENSE file for copyright and license details. */
+/* See LICENSE file for copyright and license details. */
 
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
@@ -47,14 +47,14 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class                              instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",                              NULL,       NULL,       0,            0,           -1 },
-	{ "Chromium",                          NULL,       NULL,       2,            0,           -1 },
-	{ "electron-netease-cloud-music",      NULL,       NULL,       3,            0,           -1 },
-	{ "wechat-uos",                        NULL,       NULL,       6,            0,           -1 },
-	{ "wps",                               NULL,       NULL,       4,            0,           -1 },
-	{ "synology-note-station",             NULL,       NULL,       4,            0,           -1 },
-	{ "Firefox",                           NULL,       NULL,       1 << 8,       0,           -1 },
+      /* class                              instance    title       tags mask     isfloating   monitor */
+      { "Gimp",                              NULL,       NULL,       0,            0,           -1 },
+      { "Chromium",                          NULL,       NULL,       2,            0,           -1 },
+      { "electron-netease-cloud-music",      NULL,       NULL,       3,            0,           -1 },
+      { "wechat-uos",                        NULL,       NULL,       6,            0,           -1 },
+      { "wps",                               NULL,       NULL,       4,            0,           -1 },
+      { "synology-note-station",             NULL,       NULL,       4,            0,           -1 },
+      { "Firefox",                           NULL,       NULL,       1 << 8,       0,           -1 },
 };
 
 /* layout(s) */
@@ -70,7 +70,6 @@ static const Layout layouts[] = {
 };
 
 /* key definitions */
-#define MODKEY Mod1Mask
 #define MODKEY Mod4Mask
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
@@ -86,12 +85,15 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "rofi", "-show", "run", "-show-icons", NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
 static const char *flameshot[]  = { "flameshot", "gui", NULL };
+static const char scratchpadname[] = "scratchpad";
+static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "120x34", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
-	{ MODKEY|ShiftMask,             XK_a     , spawn,          {.v = flameshot } },
+	{ MODKEY,                       XK_grave,  togglescratch,  {.v = scratchpadcmd } },
+        { MODKEY|ShiftMask,             XK_a     , spawn,          {.v = flameshot } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstackvis,  {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstackvis,  {.i = -1 } },
@@ -132,8 +134,11 @@ static Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
-	{ MODKEY|ShiftMask,            XK_s,      show,           {0} },
-	{ MODKEY|ShiftMask,            XK_d,      hide,           {0} },
+        { MODKEY|ControlMask,           XK_s,      show,           {0} },
+        { MODKEY|ControlMask,           XK_d,      hide,           {0} },
+        { MODKEY,                       XK_y,      togglescratch,  {.ui = 0 } },
+        { MODKEY,                       XK_u,      togglescratch,  {.ui = 1 } },
+        { MODKEY,                       XK_x,      togglescratch,  {.ui = 2 } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
