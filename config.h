@@ -50,10 +50,10 @@ static const Rule rules[] = {
       /* class                              instance    title       tags mask     isfloating   monitor */
       { "Gimp",                              NULL,       NULL,       0,            0,           -1 },
       { "Chromium",                          NULL,       NULL,       2,            0,           -1 },
-      { "electron-netease-cloud-music",      NULL,       NULL,       3,            0,           -1 },
-      { "wechat-uos",                        NULL,       NULL,       6,            0,           -1 },
-      { "wps",                               NULL,       NULL,       4,            0,           -1 },
-      { "synology-note-station",             NULL,       NULL,       4,            0,           -1 },
+      { "Electron-netease-cloud-music",      NULL,       NULL,       4,            0,           -1 },
+      { "Wechat-uos",                        NULL,       NULL,       6,            0,           -1 },
+      { "Wps",                               NULL,       NULL,       5,            0,           -1 },
+      { "Synology-note-station",             NULL,       NULL,       5,            0,           -1 },
       { "Firefox",                           NULL,       NULL,       1 << 8,       0,           -1 },
 };
 
@@ -70,7 +70,7 @@ static const Layout layouts[] = {
 };
 
 /* key definitions */
-#define MODKEY Mod4Mask
+#define MODKEY Mod1Mask
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
