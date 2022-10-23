@@ -21,6 +21,7 @@
  * To understand everything else, start reading main().
  */
 #include <errno.h>
+#include <time.h>
 #include <locale.h>
 #include <signal.h>
 #include <stdarg.h>
