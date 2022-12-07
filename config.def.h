@@ -13,8 +13,8 @@ static const int showsystray        = 1;     /* 0 means no systray */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const Bool viewontag         = True;     /* Switch view on tag switch */
-static const char *fonts[]          = {
-  "JetBrainsMono Nerd Font Mono:size=14","JoyPixels:size=14:antialias=true:autohint=true" };
+//static const char *fonts[]          = {  "JetBrainsMono Nerd Font Mono:size=14","JoyPixels:size=14:antialias=true:autohint=true" };
+static const char *fonts[]          = {  "Sauce Code Pro Nerd Font Mono:size=14","JoyPixels:size=14:antialias=true:autohint=true" };
 static const char dmenufont[]       = "Sauce Code Pro Nerd Font Mono:size=14";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
@@ -39,8 +39,17 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
+      { "GoldenDict",                        NULL,       NULL,       1 << 6,            0,           -1 },
+      { "qBittorrent",                       NULL,       NULL,       1 << 8,            0,           -1 },
+      { "lx-music-desktop",     	     NULL,       NULL,       1 << 2,            1,           -1 },
+      { "electron-netease-cloud-music",      NULL,       NULL,       1 << 3,            1,           -1 },
+      { "yesplaymusic",     	             NULL,       NULL,       1 << 3,            1,           -1 },
+      { "electronic-wechat",                            NULL,       NULL,       1 << 7,            0,           -1 },
+      { "wps",                               NULL,       NULL,       1 << 4,            0,           -1 },
+      { "svsclient.exe",                               NULL,       NULL,       1 << 4,            0,           -1 },
+      { "synology-note-station-client",      NULL,       NULL,       1 << 5,            0,           -1 },
+      { "firefox",                           NULL,       NULL,       1 << 1,            0,           -1 },
+      { "chromium",                          NULL,       NULL,       0,                 0,           -1 },
 };
 
 /* layout(s) */
@@ -72,8 +81,16 @@ static const Layout layouts[] = {
 #define STATUSBAR "dwmblocks"
 
 /* commands */
-static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *termcmd[]  = { "st", NULL };
+static const char *dmenucmd[] = { "rofi", "-no-lazy-grab", "-show", "drun", "-modi", "drun", "-theme", "/home/ken/.config/rofi/launchers/type-2/style-2.rasi", NULL };
+static const char *termcmd[]  = { "alacritty", NULL };
+static const char *volup[]  = { "/home/ken/Github/scripts/volup.sh", NULL };
+static const char *voldown[]  = { "/home/ken/Github/scripts/voldown.sh", NULL };
+static const char *volmute[]  = { "/home/ken/Github/scripts/volmute.sh", NULL };
+static const char *lightup[]  = { "/home/ken/Github/scripts/lightup.sh", NULL };
+static const char *lightdown[]  = { "/home/ken/Github/scripts/lightdown.sh", NULL };
+static const char *mic[]  = { "/home/ken/Github/scripts/mic.sh", NULL };
+static const char *getweather[]  = { "/home/ken/Github/scripts/getweather.sh", NULL };
+static const char *flameshot[]  = { "flameshot", "gui", NULL };
 static const char scratchpadname[] = "scratchpad";
 static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "120x34", NULL };
 
@@ -81,7 +98,15 @@ static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
+	{ 0,                     0x1008ff12,	   spawn,          {.v = volmute } },
+	{ 0,	                 0x1008ff13,      spawn,          {.v = volup } },
+	{ 0,                     0x1008ff11,	   spawn,          {.v = voldown } },
+	{ 0,                     0x1008ff02,	   spawn,          {.v = lightup } },
+	{ 0,                     0x1008ff03,	   spawn,          {.v = lightdown } },
+	{ 0,                     0x1008ffb2,	   spawn,          {.v = mic } },
+	{ Mod4Mask,                     XK_w,	   spawn,          {.v = getweather } },
 	{ MODKEY,                       XK_grave,  togglescratch,  {.v = scratchpadcmd } },
+	{ MODKEY|ShiftMask,             XK_a     , spawn,          {.v = flameshot } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
