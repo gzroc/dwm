@@ -81,15 +81,15 @@ static const Layout layouts[] = {
 #define STATUSBAR "dwmblocks"
 
 /* commands */
-static const char *dmenucmd[] = { "rofi", "-no-lazy-grab", "-show", "drun", "-modi", "drun", "-theme", "/home/ken/.config/rofi/launchers/type-2/style-2.rasi", NULL };
+static const char *dmenucmd[] = { "rofi", "-no-lazy-grab", "-show", "drun", "-modi", "drun", "-theme", "/home/ken/.config/rofi/launchers/colorful/style_2.rasi", NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
-static const char *volup[]  = { "/home/ken/Github/scripts/volup.sh", NULL };
-static const char *voldown[]  = { "/home/ken/Github/scripts/voldown.sh", NULL };
-static const char *volmute[]  = { "/home/ken/Github/scripts/volmute.sh", NULL };
-static const char *lightup[]  = { "/home/ken/Github/scripts/lightup.sh", NULL };
-static const char *lightdown[]  = { "/home/ken/Github/scripts/lightdown.sh", NULL };
-static const char *mic[]  = { "/home/ken/Github/scripts/mic.sh", NULL };
-static const char *getweather[]  = { "/home/ken/Github/scripts/getweather.sh", NULL };
+static const char *volup[]  = { "/home/ken/github/scripts/volup.sh", NULL };
+static const char *voldown[]  = { "/home/ken/github/scripts/voldown.sh", NULL };
+static const char *volmute[]  = { "/home/ken/github/scripts/volmute.sh", NULL };
+static const char *lightup[]  = { "/home/ken/github/scripts/lightup.sh", NULL };
+static const char *lightdown[]  = { "/home/ken/github/scripts/lightdown.sh", NULL };
+static const char *mic[]  = { "/home/ken/github/scripts/mic.sh", NULL };
+static const char *getweather[]  = { "/home/ken/github/scripts/getweather.sh", NULL };
 static const char *flameshot[]  = { "flameshot", "gui", NULL };
 static const char scratchpadname[] = "scratchpad";
 static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "120x34", NULL };

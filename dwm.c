@@ -1719,8 +1719,8 @@ run(void)
 
 void
 runAutostart(void) {
-	system("cd ~/Github/scripts; ./autostart_blocking.sh");
-	system("cd ~/Github/scripts; ./autostart.sh &");
+	system("cd ~/github/scripts; ./autostart_blocking.sh");
+	system("cd ~/github/scripts; ./autostart.sh &");
 }
 
 void
