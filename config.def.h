@@ -90,6 +90,8 @@ static const char *lightup[]  = { "/home/ken/github/scripts/lightup.sh", NULL };
 static const char *lightdown[]  = { "/home/ken/github/scripts/lightdown.sh", NULL };
 static const char *mic[]  = { "/home/ken/github/scripts/mic.sh", NULL };
 static const char *getweather[]  = { "/home/ken/github/scripts/getweather.sh", NULL };
+static const char *record_voice[]  = { "/home/ken/github/scripts/record_voice.sh", NULL };
+static const char *record_video[]  = { "/home/ken/github/scripts/record_video.sh", NULL };
 static const char *flameshot[]  = { "flameshot", "gui", NULL };
 static const char scratchpadname[] = "scratchpad";
 static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "120x34", NULL };
@@ -105,6 +107,8 @@ static const Key keys[] = {
 	{ 0,                     0x1008ff03,	   spawn,          {.v = lightdown } },
 	{ 0,                     0x1008ffb2,	   spawn,          {.v = mic } },
 	{ Mod4Mask,                     XK_w,	   spawn,          {.v = getweather } },
+	{ Mod4Mask,                     XK_r,	   spawn,          {.v = record_voice } },
+	{ Mod4Mask,                     XK_v,	   spawn,          {.v = record_video } },
 	{ MODKEY,                       XK_grave,  togglescratch,  {.v = scratchpadcmd } },
 	{ MODKEY|ShiftMask,             XK_a     , spawn,          {.v = flameshot } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
