@@ -83,6 +83,7 @@ static const Layout layouts[] = {
 /* commands */
 static const char *dmenucmd[] = { "rofi", "-no-lazy-grab", "-show", "drun", "-modi", "drun", "-theme", "/home/ken/.config/rofi/launchers/colorful/style_2.rasi", NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
+static const char *termcmd_st[]  = { "st", NULL };
 static const char *volup[]  = { "/home/ken/github/scripts/volup.sh", NULL };
 static const char *voldown[]  = { "/home/ken/github/scripts/voldown.sh", NULL };
 static const char *volmute[]  = { "/home/ken/github/scripts/volmute.sh", NULL };
@@ -99,7 +100,8 @@ static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "120x34
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
-	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY|ShiftMask,             XK_backslash, spawn,          {.v = termcmd } },
+	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd_st } },
 	{ 0,                     0x1008ff12,	   spawn,          {.v = volmute } },
 	{ 0,	                 0x1008ff13,      spawn,          {.v = volup } },
 	{ 0,                     0x1008ff11,	   spawn,          {.v = voldown } },
