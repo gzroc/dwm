@@ -80,6 +80,7 @@ static const Layout layouts[] = {
 #define STATUSBAR "dwmblocks" /* 状态栏的命令 */
 
 /* 命令 */
+static const char *lockcmd[] = { "i3lock", NULL };
 static const char *dmenucmd[] = { "rofi", "-no-lazy-grab", "-show", "drun", "-modi", "drun", "-theme", "/home/ken/.config/rofi/launchers/colorful/style_2.rasi", NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
 static const char *termcmd_st[]  = { "st", NULL };
@@ -100,6 +101,7 @@ static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "120x34
 static const Key keys[] = {
     /* modifier                     key        function        argument */
     { MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } }, /* 启动 rofi */
+    { MODKEY,                       XK_l,      spawn,          {.v = lockcmd } }, /* 启动 i3lock锁 */
     { MODKEY|ShiftMask,             XK_backslash, spawn,      {.v = termcmd } },  /* 启动 alacritty */
     { MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd_st } }, /* 启动 st 终端 */
     { Mod4Mask,                     XK_space,  spawn,          {.v = volmute } }, /* 静音 */
